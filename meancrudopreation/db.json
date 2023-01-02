@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+      "name": "pooja ",
+      "age": "24",
+      "mobilenumber": "987645789",
+      "id": 1
+    },
+    {
+      "name": "sham",
+      "age": "34",
+      "mobilenumber": "8865446678",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

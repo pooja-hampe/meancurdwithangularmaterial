@@ -1,0 +1,7 @@
+{
+    "/meancurd/*":{
+     "target":"http://localhost:4000",
+     "secure":false,
+      "changeOrigin":false
+    }
+}

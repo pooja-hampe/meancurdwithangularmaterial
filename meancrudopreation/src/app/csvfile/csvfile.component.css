@@ -1,0 +1,20 @@
+.container{
+   max-width: 500px;
+
+   margin:  0 auto;
+}
+.csv-file-chooser-section {
+   padding: 5px;
+   margin: 3%;
+   border: 1px solid;
+   text-align: center;
+ }
+ 
+ .csv-result-table {
+   margin: 3%;
+   border: 1px solid #73AD21;
+ 
+ }
+ 
+ table, th, td {
+   border: 1px solid black;}

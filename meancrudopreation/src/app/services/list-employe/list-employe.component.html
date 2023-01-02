@@ -1,0 +1,92 @@
+ <div class="container">
+    <div style="margin-top: 10px;">
+      <mat-form-field>
+        <mat-label>serch</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+      </mat-form-field>
+      <div>
+      <button mat-button color="primary" (click)="exporter.exportTable('csv')">
+       Download csv
+      </button>&nbsp;&nbsp;
+      <button mat-button color="primary" (click)="exporter.exportTable('json')">
+       Download json
+      </button>&nbsp;&nbsp;
+      <button mat-button color="primary"  routerLinkActive="active" 
+      routerLink="/csvfile" >
+        Go to 2nd Screen
+        </button>
+      </div>
+      <div>
+        
+      </div>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table matTableExporter [dataSource]="dataSource" #exporter="matTableExporter"   matSort>
+
+          <ng-container matColumnDef="_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let row ;let i =index"> {{i+1}} </td>
+          </ng-container>
+    
+
+          <ng-container matColumnDef="employename">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Employe Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.employename}} </td>
+          </ng-container>
+      
+        
+          <ng-container matColumnDef="employeemail">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Employe Email </th>
+            <td mat-cell *matCellDef="let row"> {{row.employeemail}} </td>
+          </ng-container>
+      
+         
+          <ng-container matColumnDef="chooseadate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Choose a date </th>
+            <td mat-cell *matCellDef="let row"> {{row.chooseadate | date}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="employeaddress">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Employe Address </th>
+            <td mat-cell *matCellDef="let row"> {{row.employeaddress}} </td>
+          </ng-container>
+      
+          
+           <ng-container matColumnDef="country">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
+            <td mat-cell *matCellDef="let row"> {{row.country}} </td>
+          </ng-container>
+
+          
+           <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action</th>
+            <td mat-cell *matCellDef="let row " > 
+              <button   mat-icon-button color="primary" [routerLink]="['/edit-employe/',row._id]" >
+                  <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteemploye(row._id)" >
+                <mat-icon>delete</mat-icon>
+            </button>
+              
+            
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+   
